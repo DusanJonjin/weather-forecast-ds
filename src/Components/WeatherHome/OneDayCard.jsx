@@ -5,6 +5,7 @@ export function OneDayCard(props) {
 
     const { clickOneDay,
             day,
+            date,
             imgSrc, 
             imgAlt, 
             tempLow,
@@ -13,7 +14,8 @@ export function OneDayCard(props) {
         return (
             <div onClick={clickOneDay}
                  className='one-day-card'>
-                <Day day={day} />
+                <Day day={day}
+                     date={date} />
                 <Image imgSrc={imgSrc}
                        imgAlt={imgAlt} />
                 <TempLowHigh tempLow={tempLow}

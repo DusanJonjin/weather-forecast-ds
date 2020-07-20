@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { WeatherApp } from './Components/WeatherApp';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './Styles/index.scss';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <WeatherApp />
+      <Router>
+          <WeatherApp />
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

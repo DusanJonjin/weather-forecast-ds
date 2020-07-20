@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function Navbar(props) {
 
@@ -17,6 +18,12 @@ export function Navbar(props) {
                        onChange={props.searchChange} placeholder='Enter name of the city...'/>
                 <input id='button' type='submit' value='Search' />
             </form>
+
+            <Link to='/' className='link'>
+                <div id='back'>
+                    ◄ Back to Forecast home ☼
+                </div>
+            </Link>
 
         </nav>
     );
