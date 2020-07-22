@@ -1,5 +1,5 @@
-import { City } from './City';
-import { Day } from './Day';
+import { CityCountry } from './CityCountry';
+import { DayDate } from './DayDate';
 import { Image } from './Image';
 import { PresHumidWind } from './PresHumidWind';
 import { TempLowHigh } from './TempLowHigh';
@@ -9,4 +9,4 @@ export them later in parent components together as needed. We do this
 to avoid too much boilerplate code in our parent components, 
 by importing them one by one. */
 
-export { City, Day, Image, PresHumidWind, TempLowHigh };
+export { CityCountry, DayDate, Image, PresHumidWind, TempLowHigh };

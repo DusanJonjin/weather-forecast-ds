@@ -1,10 +1,10 @@
 import React from 'react';
 
-export function Day({ day, date='' }) {
+export function DayDate({ dayDate, date='' }) {
 
     return (
         <h2>
-            {day}<br />
+            {dayDate}<br />
             {date}
         </h2>
     )

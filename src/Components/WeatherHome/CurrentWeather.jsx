@@ -1,7 +1,7 @@
 import React from 'react';
-import { City, Day, Image, PresHumidWind } from '../- Joint Components -/jointExport';
+import { CityCountry, DayDate, Image, PresHumidWind } from '../- Joint Components -/jointExport';
 
-export function CurrentWeather({ currently, timezone, city='Belgrade' }) {
+export function CurrentWeather({ currently, timezone, city, country }) {
 
     const { time ,
             icon,
@@ -10,7 +10,7 @@ export function CurrentWeather({ currently, timezone, city='Belgrade' }) {
             humidity,
             windSpeed } = currently;
 
-    const dayDateTime = time => 
+    const fullDayDateTime = (time, timezone) => (
         new Date(time * 1000).toLocaleDateString(
             'en',
             {
@@ -20,14 +20,16 @@ export function CurrentWeather({ currently, timezone, city='Belgrade' }) {
                 hour: '2-digit',
                 minute: '2-digit',
                 hour12: false,
-                timeZone: `${timezone}`
+                timeZone: timezone
             }
-        );
+        )
+    );
 
     return (
         <div id='current-weather'>
-            <City city={city}/>
-            <Day day={dayDateTime(time)} />
+            <CityCountry city={city}
+                         country={country}/>
+            <DayDate dayDate={fullDayDateTime(time, timezone)} />
             <Image imgSrc={require(`../../Images/${icon}.png`)}
                    imgAlt={icon} />
             <p>{temperature.toFixed(1)}</p>

@@ -1,6 +1,8 @@
 {
     "latitude": 44.818611,
     "longitude": 20.468056,
+    "city": "Belgrade",
+    "country": "Serbia",
     "timezone": "Europe/Belgrade",
     "currently": {
         "time": 1595246619,
