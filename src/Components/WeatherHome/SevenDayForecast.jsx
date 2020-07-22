@@ -12,7 +12,7 @@ export function SevenDayForecast(props) {
 
     const sevenDays = daily.data.map(day => 
         <li key={day.time}>
-            <Link to={`/${city}_`} >
+            <Link to={`/${city}_`} className='link'>
                 <OneDayCard day={day} 
                             oneDayClick={() => oneDayClick(day)}
                             currentWeatherTime={currentWeatherTime}
@@ -22,7 +22,7 @@ export function SevenDayForecast(props) {
     );
 
     return (
-        <div>
+        <div id='seven-day-forecast'>
             <h3>
                 7-day forecast
             </h3>

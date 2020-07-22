@@ -31,7 +31,7 @@ export function DayForecast({ day, city, country, timezone }) {
                          country={country}
             />
             <DayDate dayDate={fullDayDate(time)} />
-            <p>{summary}</p>
+            <p id='summary'>{summary}</p>
             <Image imgSrc={require(`../../Images/${icon}.png`)}
                    imgAlt={icon}
             />

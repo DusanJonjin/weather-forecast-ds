@@ -27,24 +27,26 @@ export function WeatherApp() {
     return (
         <React.Fragment>
             <Navbar />
-            <Switch>
-                <Route exact path='/'>
-                    <WeatherHome currently={currently}
-                                 daily={daily}
-                                 city={city}
-                                 country={country}
-                                 timezone={timezone}
-                                 oneDayClick={handleOneDayClick}
-                    />
-                </Route>
-                <Route path='/:cityDay'>
-                    <DayHourForecast chosenDayWeather={chosenDayWeather}
-                                     city={city}
-                                     country={country}
-                                     timezone={timezone}
-                    />
-                </Route>
-            </Switch>
+            <main id='weather-app'>
+                <Switch>
+                    <Route exact path='/'>
+                        <WeatherHome currently={currently}
+                                    daily={daily}
+                                    city={city}
+                                    country={country}
+                                    timezone={timezone}
+                                    oneDayClick={handleOneDayClick}
+                        />
+                    </Route>
+                    <Route path='/:cityDay'>
+                        <DayHourForecast chosenDayWeather={chosenDayWeather}
+                                        city={city}
+                                        country={country}
+                                        timezone={timezone}
+                        />
+                    </Route>
+                </Switch>
+            </main>
         </React.Fragment>
     );
 }

@@ -12,7 +12,7 @@ export function HourForecast({ hourly, timezone }) {
             'en', {hour:'2-digit', hour12: false, timeZone: timezone}
         );
         const justHour = dateHour.match((/, (.*)/))[1];
-        if (hour === '24') return '00';
+        if (justHour === '24') return '00';
         return justHour;
     };
 
@@ -23,13 +23,13 @@ export function HourForecast({ hourly, timezone }) {
     );
 
     const hoursTableData = filterPairHours(hourly).map(hour => 
-        <td key={hour.time}>
+        <td key={hour.time} id='td-one'>
                 {getHours(hour) + 'h'}
         </td>
     );
 
-    const imageTableData = filterPairHours(hourly).map(hour =>
-        <td key={hour.time}>
+    const imagesTableData = filterPairHours(hourly).map(hour =>
+        <td key={hour.time} id='td-two'>
             <Image imgSrc={require(`../../Images/${hour.icon}.png`)}
                    imgAlt={hour.icon} 
             />
@@ -37,13 +37,13 @@ export function HourForecast({ hourly, timezone }) {
     );
 
     const tempTableData = filterPairHours(hourly).map(hour => 
-        <td key={hour.time}>
+        <td key={hour.time} id='td-three'>
             {hour.temperature.toFixed(1) + '°C'}
         </td>
     );
 
     return (
-        <div id='hour-forecast'>
+        <div id='hourly-forecast'>
             <h3>Hourly forecast</h3>
             <table>
                 <tbody>
@@ -51,7 +51,7 @@ export function HourForecast({ hourly, timezone }) {
                         {hoursTableData}
                     </tr>
                     <tr>
-                        {imageTableData}
+                        {imagesTableData}
                     </tr>
                     <tr>
                         {tempTableData}
