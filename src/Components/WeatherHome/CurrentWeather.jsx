@@ -29,7 +29,7 @@ export function CurrentWeather({ currently, timezone, city, country }) {
         <div id='current-weather'>
             <CityCountry city={city}
                          country={country}/>
-            <DayDate dayDate={fullDayDateTime(time, timezone)} />
+            <DayDate dayDate={fullDayDateTime(time, timezone) + 'h'} />
             <Image imgSrc={require(`../../Images/${icon}.png`)}
                    imgAlt={icon} />
             <p id='temp-now'>

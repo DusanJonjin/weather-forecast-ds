@@ -1,5 +1,6 @@
 $center-margin: 0px auto;
 $max: 100%;
+$nav-elements-width: 280px;
 $roboto-font: 'Roboto', sans-serif;
 $background2: rgb(72, 72, 75);
 $main-font: rgb(247, 244, 244);
@@ -51,6 +52,7 @@ body {
     margin: 0px auto;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
     padding: 5px 0;
 
@@ -73,7 +75,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        max-width: $max;
+        width: $nav-elements-width;
         padding: 10px 0;
         input {
             font-size: 18px;
@@ -84,6 +86,19 @@ body {
             font-size: 16px;
         }
     }
+    #back {
+        width: $nav-elements-width;
+        font-size: 19px;
+        font-family: 'Tahoma', sans-serif;
+        color: rgb(191, 255, 191);
+        padding: 8px 0;
+        text-align: center;  
+        transition: .3s ease;    
+    }
+    #back:hover {
+        color: rgb(224, 255, 224)
+    }
+    
 }
 
 
@@ -273,6 +288,10 @@ body {
     text-decoration: none;
     color: $main-font;
     outline: 0;
+}
+
+.hide {
+    display: none
 }
 
 

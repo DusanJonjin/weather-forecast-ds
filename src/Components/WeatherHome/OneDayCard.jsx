@@ -1,16 +1,13 @@
 import React from 'react';
 import { DayDate, Image, TempLowHigh } from '../- Joint Components -/jointExport';
+import { dayDate } from '../../Utilities/heleperFunctions';
 
 export function OneDayCard({ day, oneDayClick, currentWeatherTime, timezone }) {
 
     const { time,
             icon,
             temperatureMin,
-            temperatureMax } = day;      
-            
-    const dayDate = (time, options) => (
-        new Date(time * 1000).toLocaleDateString('en', options)
-    );
+            temperatureMax } = day; 
 
     const dayDateValue = 
         dayDate(time, {timeZone: timezone}) === dayDate(currentWeatherTime, {timeZone: timezone}) ? 

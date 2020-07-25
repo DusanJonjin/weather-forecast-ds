@@ -9,20 +9,7 @@ export function WeatherApp() {
 
     const [weatherData, setWeatherData] = useState(fakeDataJson);
 
-    const [chosenDayWeather, setChosenDayWeather] = useState({});
-
     const { currently, daily, hourly, timezone, city, country } = weatherData;
-
-    const handleOneDayClick = day => {
-        const dayDate = time => (
-            new Date(time * 1000).toLocaleDateString('en', {timeZone: timezone})
-        );
-        const hoursDayDate = hourly.data.filter(
-            hour => dayDate(hour.time) === dayDate(day.time)
-        );
-        const dayHourWeatherData = {...day, hourly: hoursDayDate};
-        setChosenDayWeather(dayHourWeatherData);
-    };
 
     return (
         <React.Fragment>
@@ -31,18 +18,18 @@ export function WeatherApp() {
                 <Switch>
                     <Route exact path='/'>
                         <WeatherHome currently={currently}
-                                    daily={daily}
-                                    city={city}
-                                    country={country}
-                                    timezone={timezone}
-                                    oneDayClick={handleOneDayClick}
+                                     daily={daily}
+                                     city={city}
+                                     country={country}
+                                     timezone={timezone}
                         />
                     </Route>
                     <Route path='/:cityDay'>
-                        <DayHourForecast chosenDayWeather={chosenDayWeather}
-                                        city={city}
-                                        country={country}
-                                        timezone={timezone}
+                        <DayHourForecast daily={daily}
+                                         hourly={hourly}
+                                         city={city}
+                                         country={country}
+                                         timezone={timezone}
                         />
                     </Route>
                 </Switch>
@@ -50,3 +37,5 @@ export function WeatherApp() {
         </React.Fragment>
     );
 }
+
+//navbar search (back) hide show
