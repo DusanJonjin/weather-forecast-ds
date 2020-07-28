@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-export function Navbar(props) {
+export function Navbar({ searchSubmit }) {
 
     const location = useLocation();
+
+    const inputSearchValue = useRef(null)
 
     const { pathname } = location;
 
@@ -14,11 +16,12 @@ export function Navbar(props) {
             <p><img src={require(`./../../Images/icon.png`)} alt='weather_app_icon'/>
                 Weather Forecast
             </p>
-            <form onSubmit={props.searchSubmit} 
+            <form onSubmit={e => searchSubmit(e, inputSearchValue)} 
                   style={isHomeUrl ? {display: 'flex'} : {display:'none'}}
             >
-                <input type='search' value={props.searchValue} 
-                       onChange={props.searchChange} placeholder='Enter name of the city...'/>
+                <input type='search'  
+                       placeholder='Enter name of the city...'
+                       ref={inputSearchValue} />
                 <input id='button' type='submit' value='Search' />
             </form>
             <Link to='/' className={`link ${isHomeUrl && 'hide'}`}

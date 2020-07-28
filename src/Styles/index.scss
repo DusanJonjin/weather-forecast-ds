@@ -8,6 +8,12 @@ $t-border: 1px solid rgb(100, 100, 100);
 $title-color: rgb(255, 255, 177);
 $subtitle-color: rgb(255, 218, 163);
 
+%msg-image-props {
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 170px;
+}
+
 
 %pres-humid-wind {
     display: flex;
@@ -45,11 +51,11 @@ body {
 
 
 #navbar { 
-    background-color: rgb(15, 45, 143);
-    background-image: linear-gradient(to top left,rgb(15, 45, 143), rgb(7, 90, 185));
+    background-color: rgb(16, 48, 153);
+    background-image: linear-gradient(to top left,rgb(16, 48, 153), rgb(7, 90, 185));
     text-align: left;
     width: 100%;
-    margin: 0px auto;
+    margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -88,15 +94,15 @@ body {
     }
     #back {
         width: $nav-elements-width;
-        font-size: 19px;
+        font-size: 18px;
         font-family: 'Tahoma', sans-serif;
-        color: rgb(191, 255, 191);
+        color: rgb(207, 252, 207);
         padding: 8px 0;
         text-align: center;  
         transition: .3s ease;    
     }
     #back:hover {
-        color: rgb(224, 255, 224)
+        color: rgb(236, 255, 236)
     }
     
 }
@@ -107,7 +113,7 @@ body {
     font-family: $roboto-font;
 
     #current-weather {
-        padding: 30px 0;
+        padding: 20px 0 30px 0;
         font-family: $roboto-font;
 
         #city-country {
@@ -198,26 +204,25 @@ body {
 #day-hour-forecast {
     text-align: center;
     font-family: $roboto-font;
-    padding-top: 30px;
-    padding-bottom: 10px;
+    padding: 25px 0 30px 0;
 
     #city-country {
         display: inline-block;              
-        font-size: 28px;
+        font-size: 29px;
         margin: 0;             
         color: $title-color;
     }
 
     #day-date {
             font-size: 25px;
-            margin: 15px 0 25px 0;
+            margin: 15px 0 30px 0;
     }
 
     #summary {
         font-size: 22px;
         font-style: italic;
         color: rgb(206, 181, 253);
-        padding: 0 5px;
+        margin: 0 10px 10px 10px;
     }
 
     .temp-lowhigh {
@@ -329,31 +334,27 @@ body {
     }
 }
 
-
-.loading {
-    width: 1200px;
+.message {
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    width: 700px;
+    height: 330px;
     max-width: 100%;
-    margin: 200px auto 0px auto;
     text-align: center;
-    font-size: 40px;
-    font-style: italic;
-    font-family: $roboto-font;
+    margin: 0 auto;
+    padding: 35px 0 20px 0;
+    line-height: 1.5em;
+    color: rgb(230, 230, 230);
 }
 
-
-.searching {
-    margin: 100px auto 0px auto;
+.happy {
+    background-image: url('../Images/smiling-sun.png');
+    @extend %msg-image-props;
 }
 
-
-#bad-querry {
-    margin-top: 100px;
-    
-    p{
-        font-size: 36px;
-        font-style: italic;
-        line-height: 150%;
-    }
+.sad { 
+    background-image: url('../Images/sad-sun.png');
+    @extend %msg-image-props;
 }
 
 

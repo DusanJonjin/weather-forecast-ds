@@ -1,14 +1,7 @@
 import React from 'react';
 import { CityCountry, DayDate, Image, TempLowHigh, PresHumidWind } from '../- Joint Components -/jointExport';
-import { dayDate } from '../../Utilities/heleperFunctions';
 
-export function DayForecast({ daily, city, country, timezone, clickedDate }) {
-
-    const filteredDailyData = daily.data.filter(
-        day => dayDate(day.time, {timeZone: timezone}) === clickedDate
-    );
-
-    const chosenDay = filteredDailyData[0];
+export function DayForecast({ chosenDay, city, country, timezone }) {
 
     const { time,
             summary,

@@ -3,48 +3,52 @@ import { DayForecast } from './DayForecast';
 import { HourForecast } from './HourForecast';
 import { dayDate } from '../../Utilities/heleperFunctions';
 import { useLocation } from 'react-router-dom';
+import { allMessages } from '../../Fixtures/miscData';
 
 export function DayHourForecast(props) {
 
     const { daily, hourly, city, country, timezone } = props;
 
+    const { badDate } = allMessages;
+
     const location = useLocation();
 
     const { pathname } = location;
 
-    //values and conditions needed if page is reloaded with invalid url:
-    const urlCityArray = pathname.match(/.+?(?=_)/);
-    //If there is a match, city string exists:
-    const urlCity = urlCityArray && 
-        urlCityArray[0].slice(1, urlCityArray[0].length);
-
-
-    const clickedDateArray = pathname.match(/_(.*)/);
-    //If there is a match, date exists [2nd in array]:
-    const clickedDate = clickedDateArray && clickedDateArray[1];
+    const clickedDateArray = pathname.match(/(?<=_).*/);
+    //If there is a match, date exists:
+    const clickedDate = clickedDateArray && clickedDateArray[0];
 
     //All dates from daily object in one array:
     const allDailyDatesArr = daily.data.map(day =>
         dayDate(day.time, {timeZone: timezone})
     );
 
-    const nopage = <div>no page</div>
+    const noDate = 
+        <div className='message'>
+            {badDate.message}
+        </div>
+    ;
 
-    if (!urlCity || !clickedDate) return nopage;
+    if (!clickedDate || !allDailyDatesArr.includes(clickedDate)) return noDate;
 
-    else if (!allDailyDatesArr.includes(clickedDate) || urlCity !== city) return nopage;
+    const chosenDay = daily.data.filter(
+        day => dayDate(day.time, {timeZone: timezone}) === clickedDate
+    )[0];
+
+    const chosenDayHours = hourly.data.filter(
+        hour => dayDate(hour.time, {timeZone: timezone}) === clickedDate
+    );
     
-    else return (
+    return (
         <section id='day-hour-forecast'>          
-            <DayForecast daily={daily}
+            <DayForecast chosenDay={chosenDay}
                          city={city}
                          country={country}
-                         timezone={timezone}
-                         clickedDate={clickedDate}
+                         timezone={timezone}                      
             />
-            <HourForecast hourly={hourly}
+            <HourForecast chosenDayHours={chosenDayHours}
                           timezone={timezone}
-                          clickedDate={clickedDate}
             />           
         </section>
     );
