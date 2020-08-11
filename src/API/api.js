@@ -9,6 +9,7 @@ export const getWeather = async (searchValue, badUrl, badUrlSearch, networkError
         const geoData = apiGeoResult.data[0];
         if (!geoData) return badUrlSearch;
         const { latitude, longitude, name, country } = geoData;
+        if (!latitude || !longitude) return networkError;
     
         const apiWeather = await fetch(
         `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/5e6a1cf83ac22f224520336d0e011527/${latitude + ',' + longitude}?exclude=flags,alerts,minutely&&units=ca&&extend=hourly`

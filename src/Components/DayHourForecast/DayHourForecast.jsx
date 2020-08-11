@@ -9,7 +9,7 @@ export function DayHourForecast(props) {
 
     const { daily, hourly, city, country, timezone } = props;
 
-    const { badDate } = allMessages;
+    const { networkError, badDate } = allMessages;
 
     const location = useLocation();
 
@@ -24,11 +24,19 @@ export function DayHourForecast(props) {
         dayDate(day.time, {timeZone: timezone})
     );
 
+    const networkErr = 
+        <div className='message sad'>
+            {networkError.message}
+        </div>
+    ;
+
     const noDate = 
         <div className='message'>
             {badDate.message}
         </div>
     ;
+
+    if (!daily || !hourly) return networkErr;
 
     if (!clickedDate || !allDailyDatesArr.includes(clickedDate)) return noDate;
 

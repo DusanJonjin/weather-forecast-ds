@@ -23,7 +23,7 @@ export function WeatherApp() {
 
     const isHomeUrl = pathname === '/';
 
-    // Do this on first mount or homeURL and cityURL page refresh:
+    // Do this on first mount and home URL or cityDay URL page refresh:
     const urlCity = () => {
         if (isHomeUrl) return 'belgrade';
         const underscore = pathname.match(/_/g);
