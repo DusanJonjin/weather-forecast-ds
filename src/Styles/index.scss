@@ -222,7 +222,7 @@ body {
         font-size: 22px;
         font-style: italic;
         color: rgb(206, 181, 253);
-        margin: 0 10px 10px 10px;
+        margin: 0 10px 20px 10px;
     }
 
     .temp-lowhigh {
@@ -329,9 +329,96 @@ body {
 
 
 @media only screen and (max-width: 950px) {
-    table {
-        display: block;
+
+    %pres-humid-wind-small-screen {
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0;
+        padding: 20px 0;
+        background-color: rgb(60, 60, 65);
     }
+
+    #navbar {
+        p {
+            font-size: 20px;
+        }
+
+        form {
+            padding: 5px;
+
+            input {
+                font-size: 17px;
+            }
+        }
+
+        #back {
+            font-size: 17px;
+        }
+    }
+
+    #weather-home {
+
+        #current-weather {
+
+            #city-country {
+                font-size: 24px;
+                margin: 0 15px;
+            }
+
+            #day-date {
+                font-size: 22px;
+                margin: 15px 15px 25px 15px;
+            }
+
+            #pres-humid-wind {
+                @extend %pres-humid-wind-small-screen;
+            }
+
+        }
+
+        #seven-day-forecast {
+
+            h3 {
+            font-size: 24px;
+            }
+        }
+    }
+
+    #day-hour-forecast {
+    
+        #city-country {          
+            font-size: 26px;
+            margin: 0 15px;
+        }
+    
+        #day-date {
+            font-size: 23px;
+            margin: 15px 15px 35px 15px;
+        }
+
+        #summary {
+            font-size: 20px;
+            color: rgb(197, 168, 250);
+            margin: 0 15px 20px 15px;
+        }
+
+        #pres-humid-wind {
+            @extend %pres-humid-wind-small-screen;
+        }
+
+        #hourly-forecast {
+        
+            h3 {
+                font-size: 25px;
+                margin: 30px 0 20px 0;
+            }  
+
+            table {
+                display: block;
+            }
+        }
+    }
+
 }
 
 .message {
