@@ -101,7 +101,7 @@ export function WeatherApp() {
                 </Switch>
             </main>
           : <div className={`message ${msgClass(weatherData)}`}>
-                {weatherData.message}
+                <p>{weatherData.message}</p>
             </div>}
         </React.Fragment>
     );

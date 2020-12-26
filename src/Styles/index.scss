@@ -1,6 +1,6 @@
 $center-margin: 0px auto;
 $max: 100%;
-$nav-elements-width: 280px;
+$nav-elements-width: 300px;
 $roboto-font: 'Roboto', sans-serif;
 $background2: rgb(72, 72, 75);
 $main-font: rgb(247, 244, 244);
@@ -37,7 +37,7 @@ $subtitle-color: rgb(255, 218, 163);
 
 
 body {
-    background: rgb(38, 38, 42);
+    background: rgb(30, 30, 32);
     color: $main-font;
     margin: 0;
 }
@@ -60,7 +60,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    padding: 5px 0;
+    padding: 3px 0;
 
     p {
         font-size: 28px;
@@ -83,13 +83,38 @@ body {
         align-items: center;
         width: $nav-elements-width;
         padding: 10px 0;
-        input {
-            font-size: 18px;
+        input[type=search] {
+            font-size: 17px;
             margin: 0 5px;
+            width: 210px;
+            height: 32px;
+            padding-left: 10px;
+            border-radius: 25px;
+            background-color:rgb(222, 222, 224);
+            border: none;
+        }
+        input[placeholder] {
+            color:rgb(20, 20, 22);
+        }
+
+        ::-webkit-input-placeholder {
+            color: rgb(78, 78, 80);
         }
 
         #button {
-            font-size: 16px;
+            font-size: 17px;
+            font-weight: bold;
+            border: 2px solid rgb(210, 210, 212);
+            border-radius: 7px;
+            width: 80px;
+            height: 35px;
+            margin-left: 2px;
+            background-color: rgb(34, 70, 185);
+            color: rgb(217, 217, 219)
+        }
+
+        #button:hover {
+            cursor: pointer;
         }
     }
     #back {
@@ -111,6 +136,7 @@ body {
 #weather-home {
     text-align: center;
     font-family: $roboto-font;
+    padding-top: 10px;
 
     #current-weather {
         padding: 20px 0 30px 0;
@@ -341,6 +367,10 @@ body {
     #navbar {
         p {
             font-size: 20px;
+            font-family: $roboto-font;
+            font-weight: bold;
+            letter-spacing: 0.1;
+            margin: 5px 0 10px 0;
         }
 
         form {
@@ -425,13 +455,17 @@ body {
     font-size: 24px;
     font-family: 'Roboto', sans-serif;
     width: 700px;
-    height: 330px;
+    height: 350px;
     max-width: 100%;
     text-align: center;
     margin: 0 auto;
     padding: 35px 0 20px 0;
     line-height: 1.5em;
     color: rgb(230, 230, 230);
+
+    p {
+        margin: 0 12px;
+    }
 }
 
 .happy {

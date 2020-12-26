@@ -20,7 +20,7 @@ export function Navbar({ searchSubmit }) {
                   style={isHomeUrl ? {display: 'flex'} : {display:'none'}}
             >
                 <input type='search'  
-                       placeholder='Enter name of the city...'
+                       placeholder='Enter name of a city...'
                        ref={inputSearchValue} />
                 <input id='button' type='submit' value='Search' />
             </form>
