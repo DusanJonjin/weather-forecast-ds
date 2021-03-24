@@ -2,22 +2,26 @@ export const getWeather = async (searchValue, badUrl, badUrlSearch, networkError
     if(!searchValue) return badUrl;
     try {
         const apiGeo = await fetch(
-        `http://api.positionstack.com/v1/forward?access_key=12363d9cedc01626f2df5f58c31f2a9d&limit=1&query=${searchValue}`
+        `https://us1.locationiq.com/v1/search.php?key=pk.ae7618367e66d568a8e40af8d9c248ae&q=${searchValue}&format=json&limit=1`
         );
         const apiGeoResult = await apiGeo.json();
         if (!apiGeoResult.data) return badUrlSearch;
         const geoData = apiGeoResult.data[0];
         if (!geoData) return badUrlSearch;
-        const { latitude, longitude, name, country } = geoData;
-        if (!latitude || !longitude) return networkError;
+        const { lat, lon, display_name } = geoData;
+        if (!lat || !lon) return networkError;
+        const displayNameInArr = display_name.split(',');
+        const city = displayNameInArr[0];
+        const country = displayNameInArr[displayNameInArr.length - 1];
+        const place = {city, country}
     
         const apiWeather = await fetch(
-        `https://api.darksky.net/forecast/5e6a1cf83ac22f224520336d0e011527/${latitude + ',' + longitude}?exclude=flags,alerts,minutely&&units=ca&&extend=hourly`
+        `https://api.darksky.net/forecast/5e6a1cf83ac22f224520336d0e011527/${lat + ',' + lon}?exclude=flags,alerts,minutely&&units=ca&&extend=hourly`
         );
         const apiWeatherResult = await apiWeather.json();
-        apiWeatherResult.city = name;
-        apiWeatherResult.country = country;
-        return apiWeatherResult;  
+        const weatherWithPlace = {...apiWeatherResult, ...place}
+        
+        return weatherWithPlace;  
     }
     catch (err) {return networkError}
   }
