@@ -2,7 +2,7 @@ export const getWeather = async (searchValue, badUrl, badUrlSearch, networkError
     if(!searchValue) return badUrl;
     try {
         const apiGeo = await fetch(
-        `https://cors-anywhere.herokuapp.com/http://api.positionstack.com/v1/forward?access_key=b1fd85dac9a0d459ea8e344eb0e2303f&limit=1&query=${searchValue}`
+        `http://api.positionstack.com/v1/forward?access_key=12363d9cedc01626f2df5f58c31f2a9d&limit=1&query=${searchValue}`
         );
         const apiGeoResult = await apiGeo.json();
         if (!apiGeoResult.data) return badUrlSearch;
@@ -12,7 +12,7 @@ export const getWeather = async (searchValue, badUrl, badUrlSearch, networkError
         if (!latitude || !longitude) return networkError;
     
         const apiWeather = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/5e6a1cf83ac22f224520336d0e011527/${latitude + ',' + longitude}?exclude=flags,alerts,minutely&&units=ca&&extend=hourly`
+        `https://api.darksky.net/forecast/5e6a1cf83ac22f224520336d0e011527/${latitude + ',' + longitude}?exclude=flags,alerts,minutely&&units=ca&&extend=hourly`
         );
         const apiWeatherResult = await apiWeather.json();
         apiWeatherResult.city = name;
