@@ -5,8 +5,8 @@ export const getWeather = async (searchValue, badUrl, badUrlSearch, networkError
         `https://us1.locationiq.com/v1/search.php?key=pk.ae7618367e66d568a8e40af8d9c248ae&q=${searchValue}&format=json&limit=1`
         );
         const apiGeoResult = await apiGeo.json();
-        if (!apiGeoResult.data) return badUrlSearch;
-        const geoData = apiGeoResult.data[0];
+        if (apiGeoResult.error) return badUrlSearch;
+        const geoData = apiGeoResult[0];
         if (!geoData) return badUrlSearch;
         const { lat, lon, display_name } = geoData;
         if (!lat || !lon) return networkError;
