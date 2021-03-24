@@ -1,2 +1,2 @@
 /*    /index.html   200
-/api/*  https://api.darksky.net/:splat  200
+/API/*  https://api.darksky.net/forecast/:splat  200
