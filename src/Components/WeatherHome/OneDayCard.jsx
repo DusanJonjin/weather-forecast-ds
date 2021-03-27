@@ -26,7 +26,7 @@ export function OneDayCard({ day, oneDayClick, currentWeatherTime, timezone }) {
              className='one-day-card'>
             <DayDate dayDate={dayDateValue}
                          date={dateValue} />
-            <Image imgSrc={require(`../../Images/${icon}.png`)}
+            <Image imgSrc={require(`../../Images/${icon}.png`).default}
                    imgAlt={icon} />
             <TempLowHigh tempLow={temperatureMin.toFixed(1) + '°C'}
                          tempHigh={temperatureMax.toFixed(1) + '°C'} />

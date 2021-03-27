@@ -30,7 +30,7 @@ export function CurrentWeather({ currently, timezone, city, country }) {
             <CityCountry city={city}
                          country={country}/>
             <DayDate dayDate={fullDayDateTime(time, timezone) + 'h'} />
-            <Image imgSrc={require(`../../Images/${icon}.png`)}
+            <Image imgSrc={require(`../../Images/${icon}.png`).default}
                    imgAlt={icon} />
             <p id='temp-now'>
                 {temperature.toFixed(1) + '°C'}

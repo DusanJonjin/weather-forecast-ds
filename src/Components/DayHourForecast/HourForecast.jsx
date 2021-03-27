@@ -29,7 +29,7 @@ export function HourForecast({ chosenDayHours, timezone }) {
 
     const imagesTableData = filterPairHours(chosenDayHours).map(hour =>
         <td key={hour.time} id='td-two'>
-            <Image imgSrc={require(`../../Images/${hour.icon}.png`)}
+            <Image imgSrc={require(`../../Images/${hour.icon}.png`).default}
                    imgAlt={hour.icon} 
             />
         </td>

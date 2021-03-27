@@ -33,7 +33,7 @@ export function DayForecast({ chosenDay, city, country, timezone }) {
             />
             <DayDate dayDate={fullDayDate(time)} />
             <p id='summary'>{summary}</p>
-            <Image imgSrc={require(`../../Images/${icon}.png`)}
+            <Image imgSrc={require(`../../Images/${icon}.png`).default}
                    imgAlt={icon}
             />
             <TempLowHigh tempLow={temperatureMin.toFixed(1) + '°C'}

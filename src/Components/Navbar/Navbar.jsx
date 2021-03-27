@@ -13,7 +13,7 @@ export function Navbar({ searchSubmit }) {
 
     return(
         <nav id='navbar'>
-            <p><img src={require(`../../Images/icon.png`)} alt='weather_app_icon'/>
+            <p><img src={require(`../../Images/icon.png`).default} alt='weather_app_icon'/>
                 Weather Forecast
             </p>
             <form onSubmit={e => searchSubmit(e, inputSearchValue)} 
