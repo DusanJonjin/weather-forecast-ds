@@ -6,8 +6,6 @@ import { getWeather } from '../API/api';
 import { allMessages } from  '../Fixtures/miscData';
 import { Switch, Route, useLocation } from 'react-router-dom';
 
-console.log(process.env.REACT_APP_GEODATA_KEY)
-
 export function WeatherApp() {
 
     const { loading,
